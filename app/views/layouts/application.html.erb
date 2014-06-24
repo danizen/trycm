@@ -14,34 +14,15 @@
 </head>
 <body>
   <%= render :partial => 'shared/header' %>
-  <nav class="navbar navbar-wrapper navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <%= link_to "CodeMirror?", root_path %>
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#trycm-header">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div id="trycm-header" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right disco-toolbar">
-          <li><%= link_to "Tests", '/voila' %></li>
-          <li><%= link_to "Voila", '/voila' %></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
   <div class="container-fluid">
     <div class="row flash-row">
       <div class="col-md-12">
         <%= render :partial => 'shared/flash' %>
       </div>
     </div>
+    <div class="row">
+      <%= yield %>
+    </div>
   </div>
-
-<%= yield %>
-
 </body>
 </html>

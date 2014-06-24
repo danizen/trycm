@@ -1,29 +1,27 @@
 <%= form_for(@test) do |f| %>
-  <% if @test.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@test.errors.count, "error") %> prohibited this test from being saved:</h2>
-
-      <ul>
-      <% @test.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="clearfix">
+    <div class="form-group formgroup-left">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, :size => 80, :class => 'fifty-text' %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <div class="form-group btngroup-right">
+      <div class="btn-group">
+        <button type="submit" name="action" class="btn btn-primary">Save</button>
+        <button type="submit" name="action" class="btn btn-default">Validate</button>
+        <%= link_to "Cancel", tests_path, :class => 'btn btn-default' %>
+      </div>
+    </div>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :xslt %><br>
-    <%= f.text_area :xslt %>
+    <div class="text-border">
+      <%= f.text_area :xslt, :rows => 8, :class => 'xsl-text' %>
+    </div>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :output %><br>
-    <%= f.text_area :output %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <div class="text-border">
+      <%= f.text_area :output, :rows => 8, :class => 'out-text' %>
+    </div>
   </div>
 <% end %>

@@ -1,0 +1,29 @@
+@import 'bootstrap';
+
+body {
+  padding-top: 28px;
+}
+
+.main-flashes {
+  margin-top: 20px;
+}
+
+.formgroup-left {
+  float: left;
+  display: block-inline;
+}
+.btngroup-right {
+  float: right;
+  display: block-inline;
+}
+
+.xsl-text {
+  width: 100%;
+}
+.out-text {
+  width: 100%;
+}
+.text-border {
+  border: 1px solid #999;
+}
+

@@ -15,6 +15,17 @@ class TestsController < ApplicationController
   # GET /tests/new
   def new
     @test = Test.new
+    @test.xslt = <<EOF
+<?xml version="1.0" encoding="UTF-8"?> 
+<xsl:stylesheet version="1.0" 
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+</xsl:stylesheet>
+EOF
+    @test.output = <<EOF
+<?xml version="1.0" encoding="UTF-8"?> 
+<Passed/>
+EOF
   end
 
   # GET /tests/1/edit
@@ -26,39 +37,27 @@ class TestsController < ApplicationController
   def create
     @test = Test.new(test_params)
 
-    respond_to do |format|
-      if @test.save
-        format.html { redirect_to @test, notice: 'Test was successfully created.' }
-        format.json { render :show, status: :created, location: @test }
-      else
-        format.html { render :new }
-        format.json { render json: @test.errors, status: :unprocessable_entity }
-      end
+    if @test.save
+      flash[:notice] = 'Test was successfully created.'
+      redirect_to :action => 'index'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /tests/1
   # PATCH/PUT /tests/1.json
   def update
-    respond_to do |format|
-      if @test.update(test_params)
-        format.html { redirect_to @test, notice: 'Test was successfully updated.' }
-        format.json { render :show, status: :ok, location: @test }
-      else
-        format.html { render :edit }
-        format.json { render json: @test.errors, status: :unprocessable_entity }
-      end
-    end
+    flash[:notice] = 'Test was successfully updated.'
+    redirect_to :action => 'index'
   end
 
   # DELETE /tests/1
   # DELETE /tests/1.json
   def destroy
     @test.destroy
-    respond_to do |format|
-      format.html { redirect_to tests_url, notice: 'Test was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:notice] = 'Test was successfully destroyed.'
+    redirect_to :action => 'index'
   end
 
   private
