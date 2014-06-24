@@ -1,0 +1,15 @@
+<div class="main-flashes">
+  <% [:success, :notice, :error, :alert].each do |type| %>
+    <% if flash[type] %>
+      <div class="alert alert-<%=bootstrap_alert_class(type)%>">
+        <% if flash[type].kind_of? Enumerable %>
+          <%= flash[type].join(', ') %>
+        <% else %>
+          <%= flash[type] %>
+        <% end %>
+        <button type="button" class="close" aria-hidden="true">&times;</button>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
