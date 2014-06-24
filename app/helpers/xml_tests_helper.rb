@@ -1,0 +1,2 @@
+module XmlTestsHelper
+end
