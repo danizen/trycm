@@ -6,8 +6,8 @@
 
 $(document).ready( function() {
 
-  area1 = CodeMirror.fromTextArea(document.getElementById('test_xslt'), { lineNumbers: true });
-  area2 = CodeMirror.fromTextArea(document.getElementById('test_output'), { lineNumbers: true });
+  var cm1 = CodeMirror.fromTextArea(document.getElementById('test_xslt'), { lineNumbers: true });
+  var cm2 = CodeMirror.fromTextArea(document.getElementById('test_output'), { lineNumbers: true });
 
 });
 

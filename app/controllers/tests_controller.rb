@@ -48,6 +48,7 @@ EOF
   # PATCH/PUT /tests/1
   # PATCH/PUT /tests/1.json
   def update
+    @test.update(test_params)
     flash[:notice] = 'Test was successfully updated.'
     redirect_to :action => 'index'
   end
