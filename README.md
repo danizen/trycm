@@ -1,28 +1,24 @@
-## README ##
+## Description ##
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Tiny little Rails application to try CodeMirror on its own, e.g. outside of a larger project I'm working on.
 
-Things you may want to cover:
+## License ##
 
-* Ruby version
+MIT License, have at it
 
-* System dependencies
+## Usage ##
 
-* Configuration
+Initialize it:
 
-* Database creation
+    bundle update
+    bundle install 
+    rake db:migrate
 
-* Database initialization
+Run it:
 
-* How to run the test suite
+    rails server
 
-* Services (job queues, cache servers, search engines, etc.)
+Try it in your browser at http://localhost:3000/
 
-* Deployment instructions
+Press **New Test** link
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
